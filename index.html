@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUS API</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="index.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body x-data="CAPSTONEWIDGET"
+    style="background-image: url(images/bground.jpg); background-size: cover;background-attachment: fixed">
+    <main class="container">
+        <!-- Section for the different model links -->
+        <div class="card">
+            <section>
+                <div class="row" style="text-align: center;">
+                    <div class="col l12 m12 s12">
+                        <h3 x-text="title"></h3>
+
+                    </div>
+
+                </div>
+            </section>
+            <!-- Tabs section -->
+            <section>
+                <div claa="row">
+                    <div class="col l9 m9 s9" style="text-align: right;">
+                        <a href="index.html" class="waves-effect waves-light btn">HOME</a>
+                        <button x-on:click="openHome('contact_us')" class="waves-effect waves-light btn">contact
+                            us</button>
+                        <button x-on:click="openHome('history')" class="waves-effect waves-light btn">history</button>
+                    </div>
+                </div>
+            </section><br>
+            <section>
+                <div class="row">
+                    <div class="col l4 m4 s4" style="background-color: aqua;">
+                        <label x-on:click="openHome('UCS_Virgin_Stress_Ratio')"><button
+                                class="waves-effect waves-light btn">UCS/Virgin Stress Ratio</button></label><br><br>
+                        <hr>
+                        <label x-on:click="openHome('Jn_Description')"><button class="waves-effect waves-light btn">Jn
+                                Description</button></label><br><br>
+                        <hr>
+                        <label x-on:click="openHome('Jr_Description')"><button class="waves-effect waves-light btn">Jr
+                                Description</button></label> <br><br>
+                        <hr>
+                        <label x-on:click="openHome('Ja_Description')"><button class="waves-effect waves-light btn">Ja
+                                Description</button></label> <br><br>
+                        <hr>
+                        <label x-on:click="openHome('Jw_Description')"><button class="waves-effect waves-light btn">Jw
+                                Description</button></label> <br><br>
+                        <hr>
+                        <label x-on:click="openHome('Rock_Quality_Designator')"><button
+                                class="waves-effect waves-light btn">Rock Quality Designator</button></label><br><br>
+                        <hr>
+                        <label x-on:click="openHome('Rock_Quality_Index_Q_Value')"><button
+                                class="waves-effect waves-light btn">Rock Quality Index (Q Value)</button></label>
+                        <br><br>
+                        <hr>
+                        <label x-on:click="openHome('Stress_Reduction_Ratio')"><button
+                                class="waves-effect waves-light btn">Stress Reduction Ratio
+                                (SRF)</button></label><br><br>
+                        <hr>
+                        <label x-on:click="openHome('Rock_Mass_Rating')"><button
+                                class="waves-effect waves-light btn">Rock Mass Rating (RMR)</button></label><br><br>
+                        <hr>
+                        <label x-on:click="openHome('Excavation_Category')"><button
+                                class="waves-effect waves-light btn">Excavation Category (ESR)</button></label><br><br>
+                        <hr>
+                        <label x-on:click="openHome('Maximum_Unsupported_Span')"><button
+                                class="waves-effect waves-light btn">MUS</button></label> <br><br>
+                        <hr>
+
+                        <label><button class="waves-effect waves-light btn">logout</button></label> <br><br>
+                    </div>
+                    <!-- Different sections for the different model computation -->
+                    <div class="col l8 m8 s8">
+
+                        <!--1 HOME PAGE -->
+                        <div x-show="homepage" style="background-color: greenyellow;">
+                            1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!-- 2 UCS/Virgin Stress Ratio -->
+                        <div x-show="UCS_Virgin_Stress_Ratio" style="background-color: green;">
+                            <table>
+                                <tr>
+                                    <th><b>Density</b></th>
+                                    <th><b>Virgin Stress</b></th>
+                                    <th><b>UCS</b></th>
+                                    <th><b>Geotechnical Domain</b></th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="text-align: center;"><b>Caluclate</b></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--3 Jn Section -->
+                        <div x-show="Jn_Description" style="background-color: orange;">
+                            3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--4 Jr Section -->
+                        <div x-show="Jr_Description" style="background-color:blueviolet">
+                            8Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--5 Ja Section -->
+                        <div x-show="Ja_Description" style="background-color:brown;">
+                            1Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--6 Jw Section -->
+                        <div x-show="Jw_Description" style="background-color:blue;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!-- 7 RQD Section -->
+                        <div x-show="Rock_Quality_Designator" style="background-color:skyblue;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--8 SRF Section -->
+                        <div x-show="Stress_Reduction_Ratio" style="background-color:orchid;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--9 Q Section -->
+
+                        <div x-show="Rock_Quality_Index_Q_Value" style="background-color:indigo;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--10  RMR Section -->
+                        <div x-show="Rock_Mass_Rating" style="background-color:wheat;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+                        <!--11 ESR Section -->
+                        <div x-show="Excavation_Category" style="background-color:purple;">
+                            <img src="images/ESR.PNG" width="102%">
+                            <input type="text">
+
+                        </div>
+                        <!-- 12 Unsupported Span Section -->
+                        <div x-show="Maximum_Unsupported_Span" style="background-color:rosybrown;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nisi sit, commodi et natus
+                            rerum
+                            quod assumenda dolore beatae? Eligendi cupiditate, esse nam impedit dolores quas veniam
+                            incidunt
+                            alias ducimus?
+                        </div>
+
+                        <!-- 13 history Section -->
+                        <div x-show="history">
+                            <div class="col l10 m10 s10">
+                                <table>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Employee ID</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                    </tr>
+                                </table> <br>
+                            </div>
+                           
+                            <div class="col l12 m12 s12">
+                                <table style="border: 1px;">
+                                    <tr>
+                                        <th>Jn</th>
+                                        <th>Ja</th>
+                                        <th>Jr</th>
+                                        <th>Jw</th>
+                                        <th>UCS/VSR</th>
+                                        <th>RQD</th>
+                                        <th>Q</th>
+                                        <th>SRF</th>
+                                        <th>RMR</th>
+                                        <th>ESR</th>
+                                        <th>MUS</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                        <td>Value comes here</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- 14 contact us Section -->
+                        <div x-show="contact_us" style="background-color:rosybrown;">
+
+                            <div class="col l6 m6 s6">
+                                <img src="images/FRJ.jpg" width="25%" height="500%"><br>
+                                <b>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>Fabchi</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Given Names:&nbsp;<span>RJ</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Phone Number:&nbsp;<span>+27633829963</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Email:&nbsp;<span>fabchirajoul@gmail.com</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Discipline:&nbsp;<span>Mining Engineer</span></lable>
+                                    </p>
+                                </b>
+                            </div>
+                            <div class="col l6 m6 s6">
+                                <img src="images/KLR.jpeg" width="35%" height="30%"><br>
+                                <b>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>KAGGWA</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Given Names:&nbsp;<span>LR</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>+27738976343</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Email:&nbsp;<span>fabchirajoul@gmail.com</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Discipline:&nbsp;<span>INFORMATION TECH AND SYSTEMS </span></lable>
+                                    </p>
+                                </b>
+                            </div>
+                            <div class="col l6 m6 s6">
+                                <img src="images/MTE.jpeg" width="35%" height="30%"><br>
+                                <b>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>MOJEWA</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Given Names:&nbsp;<span>TE</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>+27790985214</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Email:&nbsp;<span>XXXXX</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Discipline:&nbsp;<span>ELECTRICAL ENGINEERING</span></lable>
+                                    </p>
+                                </b>
+                            </div>
+                            <div class="col l6 m6 s6">
+                                <img src="images/FRJ.jpg" width="30%" height="30%"><br>
+                                <b>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>NWOSU</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Given Names:&nbsp;<span>OCV</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Surname:&nbsp;<span>+27683443129</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Email:&nbsp;<span>XXXXX</span></lable>
+                                    </p>
+                                    <p>
+                                        <lable>Discipline:&nbsp;<span>GEOPHYSICS</span></lable>
+                                    </p>
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="container">
+        <div class="card">
+
+            <section>
+
+                <footer class="page-footer">
+
+                    <div class="footer-copyright">
+                        <div class="row">
+                            <div class="col m8 l12 s12" style="text-align: center;">
+                                © 2023 Copyright Reserved<br>
+                                <a class="grey-text text-lighten-4 center" href="#!">Fabchi RJ&nbsp;&nbsp;
+                                    <strong>Tel:</strong> +27633829963&nbsp;&nbsp; <strong>Email:</strong>
+                                    fabchirajoul@gmail.com</a><br>
+                                <a class="grey-text text-lighten-4 right" href="#!">UJ & ACCENTURE WORK READINESS
+                                    PROGRAM</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+            </section>
+        </div>
+    </div>
+
+</html>
