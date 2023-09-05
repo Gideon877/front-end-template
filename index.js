@@ -1,269 +1,288 @@
-document.addEventListener("alpine:init", () => {
-  Alpine.data("CAPSTONEWIDGET", () => {
-    return {
-      title: "MAXIMUM UNSUPPORTED SPAN API",
-      homepage: true,
-      UCS_Virgin_Stress_Ratio: false,
-      Jn_Description: false,
-      Jr_Description: false,
-      Ja_Description: false,
-      Jw_Description: false,
-      Rock_Quality_Designator: false,
-      Rock_Quality_Index_Q_Value: false,
-      Stress_Reduction_Ratio: false,
-      Rock_Mass_Rating: false,
-      Excavation_Category: false,
-      Maximum_Unsupported_Span: false,
-      contact_us: false,
-      history: false,
-      dashboard: true,
-      mainMenu: false,
-      username: localStorage["username"],
-      Employee_id: localStorage["Employee_id"],
-      Password: localStorage["Password"],
-      message: "",
+import express from "express"; 
 
-      
+import { PythonShell } from 'python-shell'
 
-      openHome(currentSection) {
-        this.homepage = true;
-        if (currentSection == "UCS_Virgin_Stress_Ratio") {
-          this.UCS_Virgin_Stress_Ratio = true;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Jn_Description") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = true;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Ja_Description") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = true;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Jr_Description") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = true;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Jw_Description") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = true;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Rock_Quality_Designator") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = true;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Rock_Quality_Index_Q_Value") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = true;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Stress_Reduction_Ratio") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = true;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Rock_Mass_Rating") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = true;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Excavation_Category") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = true;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "Maximum_Unsupported_Span") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = true;
-          this.contact_us = false;
-          this.history = false;
-          this.dashboard = true;
-        } else if (currentSection == "contact_us") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = true;
-          this.history = false;
-          this.dashboard = false;
-        } else if (currentSection == "history") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = false;
-          this.Jn_Description = false;
-          this.Jr_Description = false;
-          this.Ja_Description = false;
-          this.Jw_Description = false;
-          this.Rock_Quality_Designator = false;
-          this.Rock_Quality_Index_Q_Value = false;
-          this.Stress_Reduction_Ratio = false;
-          this.Rock_Mass_Rating = false;
-          this.Excavation_Category = false;
-          this.Maximum_Unsupported_Span = false;
-          this.contact_us = false;
-          this.history = true;
-          this.dashboard = false;
-        } else if (currentSection == "mainMenu") {
-          this.UCS_Virgin_Stress_Ratio = false;
-          this.homepage = true;
-          this.dashboard = true;
-          this.contact_us = false;
-          this.history = false;
-        }
-      },
 
-      UCSVirginStressRatio() {},
 
-      JnDescription() {},
+const app = express();
 
-      JaDescription() {},
-      JrDescription() {},
+// Declaring the static middleware
 
-      JwDescription() {},
+app.use(express.static("public"));
 
-      RQD() {},
+// Makes req.body works (This is known as the middleware)
+app.use(express.json());
 
-      Q() {},
+// Section that lists all the available price plan starts here
+app.post("/api/Jn_model", function (req, res) {
 
-      SRF() {},
+    const description = req.body.description;
 
-      RMR() {},
+    const options = {
 
-      ESR() {},
+        args: description
+    }
 
-      MUS() {},
-    };
-  });
+
+    // run python code
+    PythonShell.run('python-code/jn_model.py', options)
+    
+    .then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+
+app.post("/api/Ja_model", function (req, res) {
+
+    const description = req.body.description;
+
+    const options = {
+
+        args: [description]
+    }
+
+    // run python code
+    PythonShell.run('python-code/ja_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+app.post("/api/Jr_model", function (req, res) {
+
+    const description = req.body.description;
+
+    const options = {
+
+        args: [description]
+    }
+
+    // run python code
+    PythonShell.run('python-code/jr_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+app.post("/api/Jw_model", function (req, res) {
+    
+    const description = req.body.description;
+
+    const options = {
+
+        args: [description]
+    }
+
+    // run python code
+    PythonShell.run('python-code/jw_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+app.post("/api/rqd_model", function (req, res) {
+    
+    const DepthFrom = req.body.DepthFrom;
+    const DepthTo= req.body.DepthTo;
+    const TrueThickness = req.body.TrueThickness;
+    const Hardness = req.body.Hardness;
+
+    const options = {
+
+        args: [DepthFrom, DepthTo, TrueThickness,Hardness]
+    }
+
+    // run python code
+    PythonShell.run('python-code/rqd_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+app.post("/api/q_model", function (req, res) {				
+    const RQD = req.body.RQD;
+    const Jn = req.body.Jn;
+    const Jr = req.body.Jr;
+    const Ja = req.body.Ja;
+    const Jw = req.body.Jw;
+
+    const options = {
+
+        args: [RQD, Jn, Jr, Ja, Jw]
+    }
+
+    // run python code
+    PythonShell.run('python-code/q_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+     });
+});
+
+
+app.post("/api/srf_model", function (req, res) {
+    
+    const Virgin_stress_ratio = req.body.Virgin_stress_ratio;
+
+    const options = {
+
+        args: [Virgin_stress_ratio]
+    }
+
+    // run python code
+    PythonShell.run('python-code/srf_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+     });
+});
+
+
+app.post("/api/esr_model", function (req, res) {
+    
+    const ESR_Conditions = req.body.ESR_Conditions;
+
+    const options = {
+
+        args: [ESR_Conditions]
+    }
+
+    // run python code
+    PythonShell.run('python-code/esr_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+
+
+app.post("/api/ucsvsr_model", function (req, res) {
+    const GeotechDomain = req.body.GeotechDomain;
+    const DepthUnderground = req.body.DepthUnderground;
+    const Density = req.body.Density;
+    const UCS = req.body.UCS;
+
+
+
+    const options = {
+
+        args: [GeotechDomain, DepthUnderground, Density, UCS]
+    }
+
+    // run python code
+    PythonShell.run('python-code/ucsvsr_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+
+app.post("/api/Ja_model", function (req, res) {
+    
+    const description = req.body.description;
+
+    const options = {
+
+        args: [description]
+    }
+
+    // run python code
+    PythonShell.run('python-code/ja_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+     });
+});
+
+
+
+app.post("/api/rmr_model", function (req, res) {
+    		
+    const Q_Value = req.body.Q_Value;
+    const LNQ = req.body.LNQ;
+
+    const options = {
+
+        args: [Q_Value, LNQ]
+    }
+
+    // run python code
+    PythonShell.run('python-code/rmr_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+     });
+});
+
+
+app.post("/api/mus_model", function (req, res) {
+    
+    const Q_Value = req.body.Q_Value;
+    const ESR_VALUE = req.body.ESR_VALUE;
+
+    const options = {
+
+        args: [Q_Value, ESR_VALUE]
+    }
+
+    // run python code
+    PythonShell.run('python-code/mus_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+
+
+// Adding our port listener which is by defualt
+let PORT = process.env.PORT || 3008;
+
+app.listen(PORT, function () {
+  console.log("Capstone Project API with SQL starting on port", PORT);
 });
