@@ -2074,10 +2074,13 @@ document.addEventListener("alpine:init", () => {
       true_thickness: "",
       hardness_property: "",
       RQDValue: "",
+      NumRQD:"",
 
       // Rock mass quality function based on RQD value declarations
       rmqMessage: "",
       rmq_value: 0,
+      openRockMassQuality:false,
+      closeRockMassQuality:true,
 
       // Q value declaration
       RQDValue: "",
@@ -2416,10 +2419,13 @@ document.addEventListener("alpine:init", () => {
             this.rmq_value = parseInt(val);
             this.RQDValue =
               "Based on your input, the predicted Q value is " + val + "%";
+              this.NumRQD=val;
           });
       },
 
       rock_mass_quality() {
+        this.openRockMassQuality =true;
+        this.closeRockMassQuality=false;
         val = this.rmq_value;
         if (val < 25 && val > 0) {
           this.rmqMessage =
@@ -2520,7 +2526,8 @@ document.addEventListener("alpine:init", () => {
         this.rmqMessage="";
         this.RQDValue="";
         this.MUSValue="";
-        this.ESR_VALUE=""
+        this.ESR_VALUE="";
+        this.NumRQD=""
       },
     };
   });
