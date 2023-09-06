@@ -2089,6 +2089,12 @@ document.addEventListener("alpine:init", () => {
       SRFValue: "",
       QMessage: "",
 
+      // MUS value declarations 
+      MUSValue:"",
+      Q_Value:"",
+      ESR_VALUE:"",
+
+
       openHome(currentSection) {
         this.homepage = true;
         if (currentSection == "UCS_Virgin_Stress_Ratio") {
@@ -2476,7 +2482,22 @@ document.addEventListener("alpine:init", () => {
           });
       },
 
-      MUS() {},
+      MUS() {
+
+        axios
+          .post("/api/mus_model", {
+            Q_Value: this.Q_Value,
+            ESR_VALUE : this.ESR_VALUE,
+          })
+          .then((res) => {
+            console.log(res.data);
+            this.MUSValue =
+              "Based on your input, the predicted Maximum Unsupported span value is " +
+              res.data.predictions[0];
+          });
+
+        
+      },
       refresh() {
         this.Q_Value = "";
         this.LNQ = "";
@@ -2498,6 +2519,8 @@ document.addEventListener("alpine:init", () => {
         this.hardness_property="";
         this.rmqMessage="";
         this.RQDValue="";
+        this.MUSValue="";
+        this.ESR_VALUE=""
       },
     };
   });

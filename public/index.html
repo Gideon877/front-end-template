@@ -369,23 +369,21 @@
                     </div>
                     <!-- 12 Unsupported Span Section -->
                     <div x-show="Maximum_Unsupported_Span">
-
-                        <input type="number"
+                        <label>ESR Value</label>
+                        <input x-model="Q_Value" type="number"
                             placeholder="Click to Enter the numerical value of excavation category from previous computation">
-                        ESR Value
-                        <input type="number" placeholder="Click to Enter the Q-factor value previously predicted"> Q
-                        Value<br>
+                            <label>Q Value</label>
+                        <input x-model="ESR_VALUE" type="number" placeholder="Click to Enter the Q-factor value previously predicted">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="waves-effect waves-light btn-small">SUBMIT</button>
+                        
+                        <button @click="MUS()" class="waves-effect waves-light btn-small">Unsupported span prediction</button>
+                        <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
 
-
+                        
                         <h4 style="text-align: center;">MAXIMUM UNSUPPORTED SPAN PREDICTION</h4>
-                        <h5>Based on your input, the predicted MUS value is:<span></span>90%</h5>
+                        <h5><span x-text="MUSValue"></span></h5>
 
                     </div>
 
