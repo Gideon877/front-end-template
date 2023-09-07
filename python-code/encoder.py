@@ -134,3 +134,13 @@ with open("public/Jwnon.txt", "w") as output:
     for i in range(0, len(values_Jw) - 1):
         output.write('"'+ str(values_Jwnon[i] + '(' + str(values_Jw[i])) + ")" +'"' +','+ '\n')
 
+
+# ESR values 
+# Jw Values 
+# Jw Values 
+values_esr = list(df_esr["ESR Conditions"])
+values_esrnon = list(df1_esr["ESR Conditions"])
+with open("public/esrnon.txt", "w") as output:
+    for i in range(0, len(values_esr) - 1):
+        output.write('"'+ str(values_esrnon[i] + '(' + str(values_esr[i])) + ")" +'"' +','+ '\n')
+
