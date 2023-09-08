@@ -142,7 +142,7 @@
                         <button @click="refresh()" class="waves-effect waves-light btn-small">refresh</button>
                         <!--  -->
 
-                        <h4 style="text-align: center;">UCS/CSR PREDICTION</h4>
+                        <h5 style="text-align: center;">UNIAXIAL COMPRESSIVE STRENGTH / VIRGIN STRESS RATIO PREDICTION</h5>
                         <h5><span x-text="ucsvsr_value"></span></h5>
 
                     </div>
@@ -292,13 +292,17 @@
 
                                 <table>
                                     <thead>
-                                        <td>Predicted RQD (%)</td>
-                                        <td>Rock Mass Quality Classification</td>
+                                       <td colspan="1"><b> RQD (%)</b></td>
+                                        <td colspan="2"><b> CLASSIFICATION</b></td>
+                                        <td colspan="2"><b> APPLICABLE MINING METHODS</b></td>
+                                        <td colspan="3"><b> APPLICABLE SUPPORT</b></td>
                                     </thead>
                                     <template x-for="i in rmq_value "></template>
                                     <tbody>
-                                        <td x-text="NumRQD"></td>
-                                        <td x-text="rmqMessage"></td>
+                                        <td x-text="NumRQD" colspan="1"></td>
+                                        <td x-text="rmqMessage" colspan="2"></td>
+                                        <td x-text="ImpMessage" colspan="2"></td>
+                                        <td x-text="SuppMessage" colspan="3"></td>
                                     </tbody>
                                     </template>
                                 </table>

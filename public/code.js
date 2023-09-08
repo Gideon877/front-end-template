@@ -2582,6 +2582,8 @@ document.addEventListener("alpine:init", () => {
       hardness_property: "",
       RQDValue: "",
       NumRQD: "",
+      ImpMessage:"",
+      SuppMessage:"",
 
       // Rock mass quality function based on RQD value declarations
       rmqMessage: "",
@@ -3005,17 +3007,26 @@ document.addEventListener("alpine:init", () => {
         val = this.rmq_value;
         if (val < 25 && val > 0) {
           this.rmqMessage =
-            "The rock mass quality based on your input is very poor";
+            "The rock mass quality based on your input is very poor.";
+            this.ImpMessage="Tunneling, Room and Pillar, Cut and Fill, Sub-level Stoping, Block Caving, Drift and Fill,Hydraulic Fracturing";
+            this.SuppMessage="bolting, shotcrete, or mesh";
         } else if (val > 25 && val <= 50) {
           this.rmqMessage = "The rock mass quality based on your input is poor";
+          this.ImpMessage="Open-Pit Mining,Room and Pillar Mining,Cut and Fill Mining,Sublevel Stoping,Block Caving,Room and Bench Mining,Drift Mining,Hydraulic Fracturing and Grouting";
+          this.SuppMessage="Rock Bolting,Mesh and Shotcrete,Cable Bolting,Ground Monitoring,Rock Reinforcement,Rib and Roof Bolting,Rockfall Protection Systems,Shotcrete Lining,Grouting,Rockfall Drapery";
         } else if (val > 50 && val <= 75) {
           this.rmqMessage =
-            "The rock mass quality based on your input is fair. ";
+            "The rock mass quality based on your input is fair.";
+            this.ImpMessage="Open Pit Mining,Room and Pillar Mining,Cut and Fill Mining,Block Caving,Sublevel Stoping,Benching,Heap Leach Mining,";
+            this.SuppMessage="Rock Bolting,Shotcrete (Sprayed Concrete),Mesh and Wire Mesh,Cable Bolting,Grouting,Arch and Beam Supports,Rock Reinforcement Mesh,Rock Grillage or Rock Bolster,Ground Monitoring and Instrumentation";
         } else if (val > 75 && val <= 90) {
           this.rmqMessage = "The rock mass quality based on your input is Good";
+          this.ImpMessage="Open-Pit Mining,Underground Room and Pillar Mining,Block Caving,Sublevel Stoping,Cut and Fill Mining,Shaft Sinking,Room and Bench Mining,Drift Mining,Quarrying";
+          this.SuppMessage="Rock Bolting,Shotcrete,Mesh and Meshing Systems,Cable Bolting,Grouting,Reinforced Shotcrete,Rib and Lagging Support,Rockfall Protection Systems,Anchor Systems,Grout Curtain";
         } else if (val > 90 && val <= 100) {
-          this.rmqMessage =
-            "The rock mass quality based on your input is Excellent";
+          this.rmqMessage ="The rock mass quality based on your input is Excellent";
+            this.ImpMessage ="Open-Pit Mining,Tunneling and Drifting,Room and Pillar Mining,Sublevel Stoping,Cut and Fill Mining,Pillarless Mining,Longwall Mining";
+            this.SuppMessage="Rock Bolting,Shotcrete and Mesh,";
         }
       },
 
@@ -3089,10 +3100,12 @@ document.addEventListener("alpine:init", () => {
             console.log(res.data);
             this.MUSValue =
               "Based on your input, the predicted Maximum Unsupported span value is " +
-              res.data.predictions[0];
+              val +"m";
           });
       },
       refresh() {
+        this.SuppMessage="";
+        this.ImpMessage="";
         this.rmr_val="";
         this.SRFValue="";
         this.Virgin_stress_ratio = "";
