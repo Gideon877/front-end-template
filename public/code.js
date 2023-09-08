@@ -18,9 +18,6 @@ document.addEventListener("alpine:init", () => {
       history: false,
       dashboard: true,
       mainMenu: false,
-      username: localStorage["username"],
-      Employee_id: localStorage["Employee_id"],
-      Password: localStorage["Password"],
       message: "",
       keys: "",
       // Jn value declaratipn
@@ -2595,6 +2592,8 @@ document.addEventListener("alpine:init", () => {
       openRockMassQuality:false,
       closeRockMassQuality:true,
 
+     
+
       // Q value declaration
       RQDValue: "",
       JnValue: "",
@@ -2604,6 +2603,10 @@ document.addEventListener("alpine:init", () => {
       QValue: "",
       SRFValue: "",
       QMessage: "",
+
+      // SRF value declarations 
+      Virgin_stress_ratio:"",
+      srf_value:"",
 
       // MUS value declarations 
       MUSValue:"",
@@ -2615,6 +2618,21 @@ document.addEventListener("alpine:init", () => {
 
       openHome(currentSection) {
         this.homepage = true;
+        this.UCS_Virgin_Stress_Ratio = false;;
+          this.homepage = false;
+          this.Jn_Description = false;
+          this.Jr_Description = false;
+          this.Ja_Description = false;
+          this.Jw_Description = false;
+          this.Rock_Quality_Designator = false;
+          this.Rock_Quality_Index_Q_Value = false;
+          this.Stress_Reduction_Ratio = false;
+          this.Rock_Mass_Rating = false;
+          this.Excavation_Category = false;
+          this.Maximum_Unsupported_Span = false;
+          this.contact_us = false;
+          this.history = false;
+          this.dashboard = true;
         if (currentSection == "UCS_Virgin_Stress_Ratio") {
           this.UCS_Virgin_Stress_Ratio = true;
           this.homepage = false;
@@ -2999,7 +3017,20 @@ document.addEventListener("alpine:init", () => {
           });
       },
 
-      SRF() {},
+      SRF() {
+        
+        axios
+        .post("/api/srf_model", {
+          Virgin_stress_ratio: this.Virgin_stress_ratio,
+        })
+        .then((res) => {
+          console.log(res.data);
+          let val = res.data.predictions[0];
+          val = val.split("[")[1];
+          val = val.split("]")[0];
+          this.srf_value = "Based on your input, the predicted Stress Reduction value is " + val ;
+        });
+      },
 
       RMR() {
         axios
@@ -3021,15 +3052,21 @@ document.addEventListener("alpine:init", () => {
             ESR_VALUE : this.ESR_VALUE,
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
+            this.MUS_value = parseInt(val);
             console.log(res.data);
             this.MUSValue =
               "Based on your input, the predicted Maximum Unsupported span value is " +
               res.data.predictions[0];
           });
-
-        
       },
+
+
       refresh() {
+        this.Virgin_stress_ratio="";
+        this.srf_value="";
         this.Q_Value = "";
         this.LNQ = "";
         this.RQDValue = "";

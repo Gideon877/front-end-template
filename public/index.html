@@ -26,7 +26,7 @@
 </head>
 
 <body class="container">
-    <main class="card" x-data="CAPSTONEWIDGET">
+    <main class="card" x-data="CAPSTONEWIDGET" x-cloak>
 
         <!-- Login section -->
         <!-- <section>
@@ -78,6 +78,8 @@
                 <div class="col l3 m4 s4" x-show="dashboard" style="background-color: yellowgreen;">
                     <button x-on:click="openHome('UCS_Virgin_Stress_Ratio')"
                         class="waves-effect waves-light btn-small">UCS/Virgin Stress Ratio</button><br><br>
+                    <button x-on:click="openHome('Stress_Reduction_Ratio')"
+                        class="waves-effect waves-light btn-small">Stress Reduction Ratio (SRF)</button><br><br>
                     <button x-on:click="openHome('Jn_Description')" class="waves-effect waves-light btn-small">Jn
                         Description</button><br><br>
                     <button x-on:click="openHome('Jr_Description')" class="waves-effect waves-light btn-small">Jr
@@ -88,8 +90,7 @@
                         Description</button><br><br>
                     <button x-on:click="openHome('Rock_Quality_Designator')"
                         class="waves-effect waves-light btn-small">Rock Quality Designator</button><br><br>
-                    <button x-on:click="openHome('Stress_Reduction_Ratio')"
-                        class="waves-effect waves-light btn-small">Stress Reduction Ratio (SRF)</button><br><br>
+
                     <button x-on:click="openHome('Rock_Quality_Index_Q_Value')"
                         class="waves-effect waves-light btn-small">Rock Quality Index (Q Value)</button><br><br>
                     <button x-on:click="openHome('Rock_Mass_Rating')" class="waves-effect waves-light btn-small">Rock
@@ -104,85 +105,50 @@
 
                     <!--1 HOME PAGE -->
                     <div x-show="homepage">
-                        <div class="row">
-                            <div class="col l12 m6 s6">
-                                <p>The Maximum Unsupported Span API is an application programming interface designed to enhance the safety
-                                    within the mining Industry. This API makes use of multi-modal machine learning ensemble-algorithms
-                                    (Classifiers and Regressors) to bring about an accurate prediction of the Maximum Unsupported Span (MUS)
-                                    that will result in cost reduction, mining optimization and the overal improvement of safety thereby
-                                    safe-gaurding the human lives. To be able to adequately use the system, users are expected to follow the 
-                                    sequential steps outlined in the workflow below
-                                </p>
 
-                                <h5>WORK FLOW</h5>
-                                <!-- <table class="highlight">
-                                    <thead>
-                                        <tr>
-                                            <th> Student Name </th>
-                                            <th> Obtained Marks </th>
-                                            <th> Total marks </th>
-                                            <th> Percentage(%) </th>
-                                        </tr>
-                                    </thead>
-                          
-                                    <tbody>
-                                        <tr>
-                                            <td> Raj </td>
-                                            <td> 200 </td>
-                                            <td> 500 </td>
-                                            <td> 40 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Rahul </td>
-                                            <td> 250 </td>
-                                            <td> 500 </td>
-                                            <td> 50 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Rocky </td>
-                                            <td> 150 </td>
-                                            <td> 500 </td>
-                                            <td> 30 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Deepak </td>
-                                            <td> 450 </td>
-                                            <td> 500 </td>
-                                            <td> 90 </td>
-                                        </tr>
-                                    </tbody> -->
-                                <!-- </table> -->
-                                <!-- <img src="images/flowchat.PNG" width="40%" height="10%"> -->
-                                <!-- <b> -->
-                                
-                                <!-- </b> -->
+                        <p>The Maximum Unsupported Span API is an application programming interface designed to
+                            enhance the safety
+                            within the mining Industry. This API makes use of multi-modal machine learning
+                            ensemble-algorithms
+                            (Classifiers and Regressors) to bring about an accurate prediction of the Maximum
+                            Unsupported Span (MUS)
+                            that will result in cost reduction, mining optimization and the overal improvement
+                            of safety thereby
+                            safe-gaurding the human lives. To be able to adequately use the system, users are
+                            expected to follow the
+                            sequential steps outlined in the workflow below
+                        </p>
+
+                        <h5>WORK FLOW</h5>
+
+                    </div>
+
+                    <!--3 SRF Section -->
+                    <div x-show="Stress_Reduction_Ratio">
+
+                        <input x-model="Virgin_stress_ratio" type="number"
+                            placeholder="Click to Enter the ucs/vsr from your previous prediction">
+                        UCS/Virgin stress ratio<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button @click="SRF()" class="waves-effect waves-light btn-small">SRF PREDICT</button>
+                        <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
 
 
-                            </div>
-
-                            <!-- <div class="col l5 m8 s8">
-                                <img src="images/FINALFLOWCHT.PNG" width="140%">
-                                <p>
-                                    A visual representation of the study's methodology, aiding in the comprehension of
-                                    the research process which depicts the sequential steps spaning from the importation
-                                    of the dataset into the coding platform(Jupiter notebook) for processing of the
-                                    input data until the model is built and saved before being called by the
-                                    API to perform their respective computations.
-                                </p>
-                            </div> -->
-
-
-
-                        </div>
-
+                        <h4 style="text-align: center;">SRF PREDICTION</h4>
+                        <h5><span x-text="srf_value"></span></h5>
                     </div>
                     <!-- 2 UCS/Virgin Stress Ratio -->
                     <div x-show="UCS_Virgin_Stress_Ratio" style="background-color: bisque;">
                         <!--  -->
-                        <input type="number" placeholder="Click to Enter the value of the density e.g 27000"> Density
-                        (Kg/mm^3)
-                        <input type="number" placeholder="Click to Enter the vale of the virgin stress"> Depth to (MPa)
-                        <input type="number" placeholder="Click to Enter the run length in meters"> UCS (MPa)<br>
+                        <label>Density (Kg/mm^3)</label>
+                        <input type="number" placeholder="Click to Enter the value of the density e.g 27000">
+                        <label>Depth/Height (m)</label>
+                        <input type="number" placeholder="Click to Enter the vale of the virgin stress">
+
+                        <label>UCS (MPa)</label>
+                        <input type="number" placeholder="Click to Enter the run length in meters"><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -282,21 +248,6 @@
                         <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
                         <h4 style="text-align: center;">Jw PREDICTION</h4>
                         <h5><span x-text="JwVal"></span></h5>
-                    </div>
-                    <!--7 SRF Section -->
-                    <div x-show="Stress_Reduction_Ratio">
-
-                        <input type="number" placeholder="Click to Enter the ucs/vsr from your previous prediction">
-                        UCS/Virgin stress ratio<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="waves-effect waves-light btn-small">SRF PREDICT</button>
-                        <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
-
-
-                        <h4 style="text-align: center;">SRF PREDICTION</h4>
-                        <h5><span></span></h5>
                     </div>
 
                     <!--8  RQD Section -->
