@@ -2894,10 +2894,13 @@ document.addEventListener("alpine:init", () => {
             description: parseInt(this.value_Jn),
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
             console.log(res.data);
             this.JnVal =
               "Based on your input, the predicted Jn value is " +
-              res.data.predictions[0];
+              val;
           });
         setTimeout(() => (this.JnVal = ""), 30000);
       },
@@ -2917,10 +2920,13 @@ document.addEventListener("alpine:init", () => {
             description: parseInt(this.value_Ja),
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
             console.log(res.data);
             this.JaVal =
               "Based on your input, the predicted Ja value is " +
-              res.data.predictions[0];
+              val;
           });
         setTimeout(() => (this.JaVal = ""), 30000);
       },
@@ -2939,10 +2945,13 @@ document.addEventListener("alpine:init", () => {
             description: parseInt(this.value_Jr),
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
             console.log(res.data);
             this.JrVal =
               "Based on your input, the predicted Jr value is " +
-              res.data.predictions[0];
+              val;
           });
         setTimeout(() => (this.JrVal = ""), 30000);
       },
@@ -2960,10 +2969,13 @@ document.addEventListener("alpine:init", () => {
             description: parseInt(this.value_Jw),
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
             console.log(res.data);
             this.JwVal =
               "Based on your input, the predicted Jw value is " +
-              res.data.predictions[0];
+              val;
           });
         setTimeout(() => (this.JwVal = ""), 30000);
       },
@@ -3020,11 +3032,13 @@ document.addEventListener("alpine:init", () => {
             
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
             console.log(res.data);
             this.QValue =
               "Based on your input, the predicted Q value is " +
-              res.data.predictions[0] +
-              "%";
+              val;
           });
       },
       RMR() {
@@ -3033,8 +3047,11 @@ document.addEventListener("alpine:init", () => {
             Q_Value: this.Q_Value,
           })
           .then((res) => {
+            let val = res.data.predictions[0];
+            val = val.split("[")[1];
+            val = val.split("]")[0];
             console.log(res.data);
-            this.rmr_val = res.data.predictions[0];
+            this.rmr_val = "Based on your input, the rock mass rating value is " + val;
           });
       },
 
@@ -3076,11 +3093,11 @@ document.addEventListener("alpine:init", () => {
           });
       },
       refresh() {
+        this.rmr_val="";
         this.SRFValue="";
         this.Virgin_stress_ratio = "";
         this.srf_value = "";
         this.Q_Value = "";
-        this.LNQ = "";
         this.RQDValue = "";
         this.JnValue = "";
         this.JnValue = "";
@@ -3102,11 +3119,11 @@ document.addEventListener("alpine:init", () => {
         this.MUSValue = "";
         this.ESR_VALUE = "";
         this.NumRQD = "";
-        (this.rmqMessage = ""),
-          (this.DepthUnderground = ""),
-          (this.UCS = ""),
-          (this.Density = ""),
-          (this.ucsvsr_value = "");
+        this.rmqMessage = "",
+        this.DepthUnderground = "",
+        this.UCS = "",
+        this.Density = "",
+        this.ucsvsr_value = "";
       },
     };
   });
