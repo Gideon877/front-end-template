@@ -14,6 +14,45 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // Section that lists all the available price plan starts here
+app.post("/api/ucsvsr_model", function (req, res) {
+    const DepthUnderground = req.body.DepthUnderground;
+    const Density = req.body.Density;
+    const UCS = req.body.UCS;
+    const options = {
+
+        args: [DepthUnderground, Density, UCS]
+    }
+
+    // run python code
+    PythonShell.run('python-code/ucsvsr_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
+
+app.post("/api/srf_model", function (req, res) {
+    
+    const Virgin_stress_ratio = req.body.Virgin_stress_ratio;
+
+    const options = {
+
+        args: [Virgin_stress_ratio]
+    }
+
+    // run python code
+    PythonShell.run('python-code/srf_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+     });
+});
 app.post("/api/Jn_model", function (req, res) {
 
     const description = req.body.description;
@@ -36,28 +75,6 @@ app.post("/api/Jn_model", function (req, res) {
         );
     });
 });
-
-
-app.post("/api/Ja_model", function (req, res) {
-
-    const description = req.body.description;
-
-    const options = {
-
-        args: [description]
-    }
-
-    // run python code
-    PythonShell.run('python-code/ja_model.py', options).then(messages => {
-        console.log(messages)
-        res.json(
-            {
-                "predictions": messages
-            }
-        );
-    });
-});
-
 app.post("/api/Jr_model", function (req, res) {
 
     const description = req.body.description;
@@ -78,6 +95,25 @@ app.post("/api/Jr_model", function (req, res) {
     });
 });
 
+app.post("/api/Ja_model", function (req, res) {
+
+    const description = req.body.description;
+
+    const options = {
+
+        args: [description]
+    }
+
+    // run python code
+    PythonShell.run('python-code/ja_model.py', options).then(messages => {
+        console.log(messages)
+        res.json(
+            {
+                "predictions": messages
+            }
+        );
+    });
+});
 app.post("/api/Jw_model", function (req, res) {
     
     const description = req.body.description;
@@ -97,7 +133,6 @@ app.post("/api/Jw_model", function (req, res) {
         );
     });
 });
-
 app.post("/api/rqd_model", function (req, res) {
     
     const DepthFrom = req.body.DepthFrom;
@@ -127,10 +162,11 @@ app.post("/api/q_model", function (req, res) {
     const Jr = req.body.Jr;
     const Ja = req.body.Ja;
     const Jw = req.body.Jw;
+    const SRF = req.body.SRF;
 
     const options = {
 
-        args: [RQD, Jn, Jr, Ja, Jw]
+        args: [RQD, Jn, Jr, Ja, Jw, SRF]
     }
 
     // run python code
@@ -143,19 +179,17 @@ app.post("/api/q_model", function (req, res) {
         );
      });
 });
-
-
-app.post("/api/srf_model", function (req, res) {
-    
-    const Virgin_stress_ratio = req.body.Virgin_stress_ratio;
+app.post("/api/rmr_model", function (req, res) {
+    		
+    const Q_Value = req.body.Q_Value;
 
     const options = {
 
-        args: [Virgin_stress_ratio]
+        args: [Q_Value]
     }
 
     // run python code
-    PythonShell.run('python-code/srf_model.py', options).then(messages => {
+    PythonShell.run('python-code/rmr_model.py', options).then(messages => {
         console.log(messages)
         res.json(
             {
@@ -164,7 +198,6 @@ app.post("/api/srf_model", function (req, res) {
         );
      });
 });
-
 
 app.post("/api/esr_model", function (req, res) {
     
@@ -185,74 +218,6 @@ app.post("/api/esr_model", function (req, res) {
         );
     });
 });
-
-
-
-app.post("/api/ucsvsr_model", function (req, res) {
-    const DepthUnderground = req.body.DepthUnderground;
-    const Density = req.body.Density;
-    const UCS = req.body.UCS;
-    const options = {
-
-        args: [DepthUnderground, Density, UCS]
-    }
-
-    // run python code
-    PythonShell.run('python-code/ucsvsr_model.py', options).then(messages => {
-        console.log(messages)
-        res.json(
-            {
-                "predictions": messages
-            }
-        );
-    });
-});
-
-
-app.post("/api/Ja_model", function (req, res) {
-    
-    const description = req.body.description;
-
-    const options = {
-
-        args: [description]
-    }
-
-    // run python code
-    PythonShell.run('python-code/ja_model.py', options).then(messages => {
-        console.log(messages)
-        res.json(
-            {
-                "predictions": messages
-            }
-        );
-     });
-});
-
-
-
-app.post("/api/rmr_model", function (req, res) {
-    		
-    const Q_Value = req.body.Q_Value;
-    const LNQ = req.body.LNQ;
-
-    const options = {
-
-        args: [Q_Value, LNQ]
-    }
-
-    // run python code
-    PythonShell.run('python-code/rmr_model.py', options).then(messages => {
-        console.log(messages)
-        res.json(
-            {
-                "predictions": messages
-            }
-        );
-     });
-});
-
-
 app.post("/api/mus_model", function (req, res) {
     
     const Q_Value = req.body.Q_Value;
@@ -273,8 +238,6 @@ app.post("/api/mus_model", function (req, res) {
         );
     });
 });
-
-
 
 // Adding our port listener which is by defualt
 let PORT = process.env.PORT || 3008;

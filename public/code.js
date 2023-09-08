@@ -2574,7 +2574,6 @@ document.addEventListener("alpine:init", () => {
       ],
       // RMR value declaratipn
       Q_Value: "",
-      LNQ: "",
       rmr_val: "",
       // RQD value declaration
       Depth_from_surface: "",
@@ -3018,7 +3017,7 @@ document.addEventListener("alpine:init", () => {
             Ja: this.JaValue,
             Jw: this.JwValue,
             SRF: this.SRFValue,
-            // SRFVal: this.SRFVal,
+            
           })
           .then((res) => {
             console.log(res.data);
@@ -3032,7 +3031,6 @@ document.addEventListener("alpine:init", () => {
         axios
           .post("/api/rmr_model", {
             Q_Value: this.Q_Value,
-            LNQ: this.LNQ,
           })
           .then((res) => {
             console.log(res.data);
@@ -3078,6 +3076,7 @@ document.addEventListener("alpine:init", () => {
           });
       },
       refresh() {
+        this.SRFValue="";
         this.Virgin_stress_ratio = "";
         this.srf_value = "";
         this.Q_Value = "";
