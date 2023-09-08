@@ -189,16 +189,12 @@ app.post("/api/esr_model", function (req, res) {
 
 
 app.post("/api/ucsvsr_model", function (req, res) {
-    const GeotechDomain = req.body.GeotechDomain;
     const DepthUnderground = req.body.DepthUnderground;
     const Density = req.body.Density;
     const UCS = req.body.UCS;
-
-
-
     const options = {
 
-        args: [GeotechDomain, DepthUnderground, Density, UCS]
+        args: [DepthUnderground, Density, UCS]
     }
 
     // run python code
