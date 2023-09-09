@@ -2584,6 +2584,7 @@ document.addEventListener("alpine:init", () => {
       NumRQD: "",
       ImpMessage:"",
       SuppMessage:"",
+      ExcMessage:"",
 
       // Rock mass quality function based on RQD value declarations
       rmqMessage: "",
@@ -3010,24 +3011,29 @@ document.addEventListener("alpine:init", () => {
             "The rock mass quality based on your input is very poor.";
             this.ImpMessage="Tunneling, Room and Pillar, Cut and Fill, Sub-level Stoping, Block Caving, Drift and Fill,Hydraulic Fracturing";
             this.SuppMessage="bolting, shotcrete, or mesh";
+            this.ExcMessage="Temporal mine openings,Storage rooms, water treatment plants, minor road and railway tunnels, surge chambers and access tunnels";
         } else if (val > 25 && val <= 50) {
           this.rmqMessage = "The rock mass quality based on your input is poor";
           this.ImpMessage="Open-Pit Mining,Room and Pillar Mining,Cut and Fill Mining,Sublevel Stoping,Block Caving,Room and Bench Mining,Drift Mining,Hydraulic Fracturing and Grouting";
           this.SuppMessage="Rock Bolting,Mesh and Shotcrete,Cable Bolting,Ground Monitoring,Rock Reinforcement,Rib and Roof Bolting,Rockfall Protection Systems,Shotcrete Lining,Grouting,Rockfall Drapery";
+          this.ExcMessage="Temporal mine openings,Storage rooms, water treatment plants, minor road and railway tunnels, surge chambers and access tunnels,Power stations, major road and railway tunnels, civil defence chambers, portal intersections";
         } else if (val > 50 && val <= 75) {
           this.rmqMessage =
             "The rock mass quality based on your input is fair.";
             this.ImpMessage="Open Pit Mining,Room and Pillar Mining,Cut and Fill Mining,Block Caving,Sublevel Stoping,Benching,Heap Leach Mining,";
             this.SuppMessage="Rock Bolting,Shotcrete (Sprayed Concrete),Mesh and Wire Mesh,Cable Bolting,Grouting,Arch and Beam Supports,Rock Reinforcement Mesh,Rock Grillage or Rock Bolster,Ground Monitoring and Instrumentation";
+            this.ExcMessage="Storage rooms, water treatment plants, minor road and railway tunnels, surge chambers and access tunnels,Power stations, major road and railway tunnels, civil defence chambers, portal intersections";
         } else if (val > 75 && val <= 90) {
           this.rmqMessage = "The rock mass quality based on your input is Good";
           this.ImpMessage="Open-Pit Mining,Underground Room and Pillar Mining,Block Caving,Sublevel Stoping,Cut and Fill Mining,Shaft Sinking,Room and Bench Mining,Drift Mining,Quarrying";
           this.SuppMessage="Rock Bolting,Shotcrete,Mesh and Meshing Systems,Cable Bolting,Grouting,Reinforced Shotcrete,Rib and Lagging Support,Rockfall Protection Systems,Anchor Systems,Grout Curtain";
+          this.ExcMessage="Power stations, major road and railway tunnels, civil defence chambers, portal intersections,Underground nuclear power station, railway stations, sports and public facilities,Permanent mine openings, water tunnels for hydro(power high pressure penstocks),pilot tunnels, drifts and headings for large excavation";
         } else if (val > 90 && val <= 100) {
           this.rmqMessage ="The rock mass quality based on your input is Excellent";
             this.ImpMessage ="Open-Pit Mining,Tunneling and Drifting,Room and Pillar Mining,Sublevel Stoping,Cut and Fill Mining,Pillarless Mining,Longwall Mining";
             this.SuppMessage="Rock Bolting,Shotcrete and Mesh,";
-        }
+            this.ExcMessage="Power stations, major road and railway tunnels, civil defence chambers, portal intersections,Underground nuclear power station, railway stations, sports and public facilities,Permanent mine openings, water tunnels for hydro(power high pressure penstocks),pilot tunnels, drifts and headings for large excavation";
+          }
       },
 
       Q() {
@@ -3104,6 +3110,7 @@ document.addEventListener("alpine:init", () => {
           });
       },
       refresh() {
+        this.ExcMessage="";
         this.SuppMessage="";
         this.ImpMessage="";
         this.rmr_val="";

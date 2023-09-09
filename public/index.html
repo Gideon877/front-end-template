@@ -269,9 +269,8 @@
                         <input x-model="hardness_property" type="number"
                             placeholder="Click to Enter the run length in meters">
                         <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
                         <button @click="RQD()" class="waves-effect waves-light btn-small">RQD PREDICT</button>
                         <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
                         <button @click="rock_mass_quality" class="waves-effect waves-light btn-small">ROCK MASS
@@ -285,24 +284,25 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <button @click="closeRockMassQuality=!closeRockMassQuality"
                                 class="waves-effect waves-light btn-small">Open/close</button>
                             <div x-show="closeRockMassQuality">
 
-                                <table>
+                                <table class="responsive-table" style="color: blueviolet;">
                                     <thead>
-                                       <td colspan="1"><b> RQD (%)</b></td>
-                                        <td colspan="2"><b> CLASSIFICATION</b></td>
-                                        <td colspan="2"><b> APPLICABLE MINING METHODS</b></td>
-                                        <td colspan="3"><b> APPLICABLE SUPPORT</b></td>
+                                       <td><b> RQD (%)</b></td>
+                                        <td><b>QUALITY</b></td>
+                                        <td><b>MINING METHODS</b></td>
+                                        <td><b> APPLICABLE SUPPORT</b></td>
+                                        <td><b> APPLICABLE EXCAVATION</b></td>
                                     </thead>
                                     <template x-for="i in rmq_value "></template>
-                                    <tbody>
-                                        <td x-text="NumRQD" colspan="1"></td>
-                                        <td x-text="rmqMessage" colspan="2"></td>
-                                        <td x-text="ImpMessage" colspan="2"></td>
-                                        <td x-text="SuppMessage" colspan="3"></td>
+                                    <tbody x-show="NumRQD >0">
+                                        <td x-text="NumRQD"></td>
+                                        <td x-text="rmqMessage"></td>
+                                        <td x-text="ImpMessage"></td>
+                                        <td x-text="SuppMessage"></td>
+                                        <td x-text="ExcMessage"></td>
                                     </tbody>
                                     </template>
                                 </table>
