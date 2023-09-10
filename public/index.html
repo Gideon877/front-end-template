@@ -111,11 +111,12 @@
                             enhance the safety
                             within the mining Industry. This API makes use of multi-modal machine learning
                             ensemble-algorithms
-                            (Classifiers and Regressors) to bring about an accurate prediction of the Maximum
-                            Unsupported Span (MUS)
-                            that will result in cost reduction, mining optimization and the overal improvement
-                            of safety thereby
-                            safe-gaurding the human lives. To be able to adequately use the system, users are
+                            (Classifiers and Regressors) in the prediction of the Uniaxial compressive/Virgin stress ratio,
+                            stress reduction factor, joint set number, joint orientation number, joint alteration number,
+                            joint water reduction number, rock quality designator,rock quality index, rock mass rating, 
+                            and the excavation category all which are then being used by another model in the final prediction
+                            of the maximum unsupported span (MUS) with the aim of reducing cost, optimization, enhancing safety etc. 
+                             To be able to adequately use the system, users are
                             expected to follow the
                             sequential steps outlined in the workflow below
                         </p>
@@ -126,62 +127,74 @@
                         </p>
                         <table class="responsive-table" style="color: blueviolet;" x-show="workflow">
                             <thead>
+                                <td><b>STEP</b></td>
                                <td><b> Action Button</b></td>
                                 <td><b>Required Input</b></td>
                                 <td><b>Output @click Button Predict</b></td>
                             </thead>
                            
                             <tbody >
+                                <td>1</td>
                                 <td >UCS/Virgin Stress Ratio</td>
                                 <td >Density(kg/mm^3)<br> Depth/Height(m)<br> UCS(MPA)</td>
                                 <td >UCS/VSR Predict</td>
                             </tbody>
                             <tbody >
+                                <td>2</td>
                                 <td >Stress Reduction Ratio</td>
                                 <td >UCS/VSR Predict</td>
                                 <td >SRF Predict</td>
                             </tbody>
                             <tbody >
+                                <td>3</td>
                                 <td>Jn Description</td>
                                 <td>Description of the Joint set number</td>
                                 <td >Jn number</td>
                             </tbody>
                             <tbody >
+                                <td>4</td>
                                 <td >Jr Description</td>
                                 <td >Description of the orientation number</td>
                                 <td >Jr number</td>
                             </tbody>
                             <tbody >
+                                <td>5</td>
                                 <td >Ja Description</td>
                                 <td >Description of the Joint alteration number</td>
                                 <td >Ja number</td>
                             </tbody>
                             <tbody >
+                                <td>6</td>
                                 <td >Jw Description</td>
                                 <td >Description of the Joint water reduction number</td>
                                 <td >Jw number</td>
                             </tbody>
                             <tbody >
+                                <td>7</td>
                                 <td >Rock Quality Designator</td>
                                 <td >Depth below surface<br> Depth below surface <br>True thickness<br> Hardness</td>
                                 <td >RQD Predict</td>
                             </tbody>
                             <tbody >
+                                <td>8</td>
                                 <td >Rock Quality Index (Q Value)</td>
                                 <td >SRF Predict<br> Jn number <br>Jr number<br> Ja number <br>Jw number<br> RQD Predict</td>
                                 <td >Q Predict</td>
                             </tbody>
                             <tbody >
+                                <td>9</td>
                                 <td >ROck Mass Rating (RMR)</td>
                                 <td >Q Predict</td>
                                 <td >RMR Predict</td>
                             </tbody>
                             <tbody >
+                                <td>10</td>
                                 <td >Excavation Category (ESR)</td>
                                 <td >Excavation category description</td>
                                 <td >ESR Predict</td>
                             </tbody>
                             <tbody >
+                                <td>11</td>
                                 <td >MUS</td>
                                 <td >Q Predict<br>ESR Predict</td>
                                 <td >Maximum Unsupproted span prediction</td>
@@ -397,7 +410,7 @@
                                         <td x-text="SuppMessage"></td>
                                         <td x-text="ExcMessage"></td>
                                     </tbody>
-                                    </template>
+                                    <!-- </template> -->
                                 </table>
                             </div>
                         </div>
@@ -431,14 +444,28 @@
 
                         <button @click="Q()" class="waves-effect waves-light btn-small">Q PREDICT</button>
                         <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
-                        <button class="waves-effect waves-light btn-small">SUPPORT REQUIREMENT</button>
+                        <button @click="Q_value_analysis()" class="waves-effect waves-light btn-small">analyse</button>
 
 
                         <h4 style="text-align: center;">Q-Value PREDICTION</h4>
                         <h5><span x-text="QValue"></span></h5>
 
-                        <div>
-                            <span x-text="QMessage"></span>
+                        <div >
+
+                            <table class="responsive-table" style="color: blueviolet;">
+                                <thead>
+                                   <td><b> Q Value</b></td>
+                                   <td><b> Implication</b></td>
+                                    
+                                </thead>
+                                
+                                <tbody>
+                                    <td x-text="NumQ"></td>
+                                    <td ><span x-text="qAnalysMessage1"></span><br><span x-text="qAnalysMessage2"></span><br><span x-text="qAnalysMessage3"></span></td>
+                                    
+                                </tbody>
+                                
+                            </table>
                         </div>
 
                     </div>
