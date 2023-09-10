@@ -76,6 +76,7 @@
             <div class="row">
                 <!-- Section for the dashboard linls -->
                 <div class="col l3 m4 s4" x-show="dashboard" style="background-color: yellowgreen;">
+                    <h4>ACTION BUTTONS</h4>
                     <button x-on:click="openHome('UCS_Virgin_Stress_Ratio')"
                         class="waves-effect waves-light btn-small">UCS/Virgin Stress Ratio</button><br><br>
                     <button x-on:click="openHome('Stress_Reduction_Ratio')"
@@ -105,7 +106,7 @@
 
                     <!--1 HOME PAGE -->
                     <div x-show="homepage">
-
+                        <h5 style="color: blue;"><b>ABOUT</b></h5>
                         <p>The Maximum Unsupported Span API is an application programming interface designed to
                             enhance the safety
                             within the mining Industry. This API makes use of multi-modal machine learning
@@ -119,8 +120,104 @@
                             sequential steps outlined in the workflow below
                         </p>
 
-                        <h5>WORK FLOW</h5>
+                        <h5 style="color: blue;"><b>WORK FLOW</b></h5>
+                        <p>The action button have been aligned accordingly and every user is expected to follow the sequence inorder to 
+                            get their predictions. A full list of the input and the corresponding output for the action buttons can be seen here: <a href="#" @click="workflow=!workflow" style="text-align: center;">click to view/close the workflow</a>
+                        </p>
+                        <table class="responsive-table" style="color: blueviolet;" x-show="workflow">
+                            <thead>
+                               <td><b> Action Button</b></td>
+                                <td><b>Required Input</b></td>
+                                <td><b>Output @click Button Predict</b></td>
+                            </thead>
+                           
+                            <tbody >
+                                <td >UCS/Virgin Stress Ratio</td>
+                                <td >Density(kg/mm^3)<br> Depth/Height(m)<br> UCS(MPA)</td>
+                                <td >UCS/VSR Predict</td>
+                            </tbody>
+                            <tbody >
+                                <td >Stress Reduction Ratio</td>
+                                <td >UCS/VSR Predict</td>
+                                <td >SRF Predict</td>
+                            </tbody>
+                            <tbody >
+                                <td>Jn Description</td>
+                                <td>Description of the Joint set number</td>
+                                <td >Jn number</td>
+                            </tbody>
+                            <tbody >
+                                <td >Jr Description</td>
+                                <td >Description of the orientation number</td>
+                                <td >Jr number</td>
+                            </tbody>
+                            <tbody >
+                                <td >Ja Description</td>
+                                <td >Description of the Joint alteration number</td>
+                                <td >Ja number</td>
+                            </tbody>
+                            <tbody >
+                                <td >Jw Description</td>
+                                <td >Description of the Joint water reduction number</td>
+                                <td >Jw number</td>
+                            </tbody>
+                            <tbody >
+                                <td >Rock Quality Designator</td>
+                                <td >Depth below surface<br> Depth below surface <br>True thickness<br> Hardness</td>
+                                <td >RQD Predict</td>
+                            </tbody>
+                            <tbody >
+                                <td >Rock Quality Index (Q Value)</td>
+                                <td >SRF Predict<br> Jn number <br>Jr number<br> Ja number <br>Jw number<br> RQD Predict</td>
+                                <td >Q Predict</td>
+                            </tbody>
+                            <tbody >
+                                <td >ROck Mass Rating (RMR)</td>
+                                <td >Q Predict</td>
+                                <td >RMR Predict</td>
+                            </tbody>
+                            <tbody >
+                                <td >Excavation Category (ESR)</td>
+                                <td >Excavation category description</td>
+                                <td >ESR Predict</td>
+                            </tbody>
+                            <tbody >
+                                <td >MUS</td>
+                                <td >Q Predict<br>ESR Predict</td>
+                                <td >Maximum Unsupproted span prediction</td>
+                            </tbody>
+                            
+                        </table>
+                        <h5 style="color: blue;"><b>CAPABILTIES</b></h5>
+                        <p> The maximum unsupported span API does not only predicts, its respective output based on its input. It
+                            also gives proposals based on its predictive results so that users can be aware of situations way before
+                            they happen and what they will have to do inorder to make a bad situation turn good. 
+                        </p>
 
+                        <table class="responsive-table" style="color: blueviolet;">
+                            <thead>
+                               <td><b> CAPABILITIES</b></td>
+                                <td><b>ACTION BUTTON @CLICK</b></td>
+                                <td><b>RESULT UPON CLICKING THE ACTION BUTTON</b></td>
+                            </thead>
+                           
+                            <tbody >
+                                <td >Soil Classification</td>
+                                <td >Rock Mass Quality</td>
+                                <td >Soil Quality,&nbsp;Applicable Mining Method,&nbsp;Applicable Support,&nbsp;Applicable Excavation</td>
+                            </tbody>
+
+                            <!-- <tbody >
+                                <td >Support Requirements</td>
+                                <td >Rock Mass Quality</td>
+                                <td >Soil Quality,&nbsp;Applicable Mining Method,&nbsp;Applicable Support,&nbsp;Applicable Excavation</td>
+                            </tbody> -->
+                            <tbody >
+                                <td >Unsupported Span</td>
+                                <td >Action button @Get recommendations</td>
+                                <td >Immediate collapse,&nbsp;No support required,&nbsp;Duration it will take before a collapse,&nbsp;stable or unstable,&nbsp;Factor of safety </td>
+                            </tbody>
+                        </table>
                     </div>
                     <!-- 2 UCS/Virgin Stress Ratio -->
                     <div x-show="UCS_Virgin_Stress_Ratio" style="background-color: bisque;">
@@ -146,8 +243,6 @@
                         <h5><span x-text="ucsvsr_value"></span></h5>
 
                     </div>
-
-
                     <!--3 SRF Section -->
                     <div x-show="Stress_Reduction_Ratio">
 
@@ -162,10 +257,9 @@
 
 
                         <h4 style="text-align: center;">SRF PREDICTION</h4>
-                        <h5><span x-text="srf_value"></span></h5>
+                        <h5 style="color: blue;"><span x-text="srf_value"></span></h5>
                     </div>
-
-                    <!--3 Jn Section -->
+                    <!--4 Jn Section -->
                     <div x-show="Jn_Description" style="background-color: aqua;">
                         <label>Jn Description</label>
                         <input list="Jn Data" name="Jn Description" id="Jn Description" x-model="JnDesc"
@@ -187,7 +281,7 @@
 
 
                     </div>
-                    <!--4 Jr Section -->
+                    <!--5 Jr Section -->
                     <div x-show="Jr_Description" style="background-color: aquamarine;">
 
                         <label>Jr Description</label>
@@ -209,7 +303,7 @@
                         <h5><span x-text="JrVal"></span></h5>
 
                     </div>
-                    <!--5 Ja Section -->
+                    <!--6 Ja Section -->
                     <div x-show="Ja_Description">
 
                         <label>Ja Description</label>
@@ -231,8 +325,7 @@
                         <h5><span x-text="JaVal"></span></h5>
 
                     </div>
-                    <!--6 Jw Section -->
-
+                    <!--7 Jw Section -->
                     <div x-show="Jw_Description">
 
                         <label>Jw Description</label>
@@ -253,8 +346,7 @@
                         <h4 style="text-align: center;">Jw PREDICTION</h4>
                         <h5><span x-text="JwVal"></span></h5>
                     </div>
-
-                    <!--6  RQD Section -->
+                    <!--8  RQD Section -->
                     <div x-show="Rock_Quality_Designator">
                         <label>Depth From (m) Surface</label>
                         <input x-model="Depth_from_surface" type="number"
@@ -279,6 +371,7 @@
 
                         <h4 style="text-align: center;">RQD PREDICTION</h4>
                         <p><span x-text="RQDValue"></span></p>
+                        <!-- <p><span x-text="RQDMessage"></span></p> -->
                         <div x-show="openRockMassQuality">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -311,7 +404,6 @@
 
 
                     </div>
-
                     <!--9 Q Section -->
                     <div x-show="Rock_Quality_Index_Q_Value" style="background-color: antiquewhite;">
                         <label>Joint set number Predicted Value (Jn Predict)</label>
@@ -417,15 +509,8 @@
                         <h5><span x-text="MUSValue"></span></h5>
 
                     </div>
-
-
-
-
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- Contact us section -->

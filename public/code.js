@@ -2,6 +2,7 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("CAPSTONEWIDGET", () => {
     return {
       title: "MAXIMUM UNSUPPORTED SPAN API",
+      workflow:false,
       homepage: true,
       UCS_Virgin_Stress_Ratio: false,
       Jn_Description: false,
@@ -2863,7 +2864,7 @@ document.addEventListener("alpine:init", () => {
             val = val.split("[")[1];
             val = val.split("]")[0];
             this.ucsvsr_value =
-              "Based on your input, the ratio of the Uniaxial compressive strength to the virgin stress value is " +
+              "Based on your input, the ratio of the Uniaxial compressive strength to the virgin stress is " +
               val;
           });
       },
@@ -3106,7 +3107,7 @@ document.addEventListener("alpine:init", () => {
             console.log(res.data);
             this.MUSValue =
               "Based on your input, the predicted Maximum Unsupported span value is " +
-              val +"m";
+              val/2 +"m";
           });
       },
       refresh() {
