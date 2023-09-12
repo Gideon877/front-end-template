@@ -2691,6 +2691,7 @@ document.addEventListener("alpine:init", () => {
           this.contact_us = false;
           this.history = false;
           this.dashboard = true;
+          this.localStorage["Ja_Description"];
         } else if (currentSection == "Jr_Description") {
           this.UCS_Virgin_Stress_Ratio = false;
           this.homepage = false;
