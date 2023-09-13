@@ -2,3 +2,5 @@ pandas
 numpy
 pickle4 
 scikit-learn
+python3
+sklearn
