@@ -1,6 +1,5 @@
 import express from "express"; 
 
-import  'sklearn';
 
 import { PythonShell } from 'python-shell'
 

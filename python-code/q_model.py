@@ -1,5 +1,6 @@
 import pickle
 import sys
+import  sklearn
 
 
 with open('models/q.pkl','rb') as f:
