@@ -1,6 +1,6 @@
 import pickle
 import sys
-import  sklearn
+# import  sklearn
 
 
 with open('models/gradient_boosting_Ja.pkl','rb') as f:

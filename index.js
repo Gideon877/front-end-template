@@ -1,8 +1,5 @@
 import express from "express";
 
-import {sklearn} from 'scikit-learn';
-
-
 import { PythonShell } from 'python-shell'
 
 

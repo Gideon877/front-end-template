@@ -1,6 +1,1 @@
-pandas
-numpy
-pickle4 
-scikit-learn
-python3
-sklearn
+scikit-learn===1.2.1

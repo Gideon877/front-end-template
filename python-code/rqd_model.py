@@ -1,6 +1,6 @@
 import pickle
 import sys
-import  sklearn
+# import  sklearn
 
 with open('models/rqd_GBR_rqd.pkl','rb') as f:
         RQD_model_GBR = pickle.load(f)

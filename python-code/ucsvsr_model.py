@@ -1,6 +1,6 @@
 import pickle
 import sys
-import  sklearn
+# import  sklearn
 
 
 with open('models/ucsvsr.pkl','rb') as f:
