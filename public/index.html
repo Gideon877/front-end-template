@@ -473,11 +473,17 @@
                         <button @click="MUS()" class="waves-effect waves-light btn-small">Unsupported span
                             prediction</button>
                         <button @click="refresh()" class="waves-effect waves-light btn-small">REFRESH</button>
-                        <button class="waves-effect waves-light btn-small">GET
+                        <button @click="get_recommendtions_mus()" class="waves-effect waves-light btn-small">GET
                             RECOMMENDATION</button>
                         <h4 style="text-align: center;">MAXIMUM UNSUPPORTED SPAN PREDICTION</h4>
                         <h5><span x-text="MUSValue"></span></h5>
+
+                        <div>
+                            <!-- <img src="images/Extrapolation.PNG" width="60%"/> -->
+                            <span x-text="get_recommdendation_message"></span>
+                        </div>
                     </div>
+                   
                 </div>
             </div>
         </section>

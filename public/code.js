@@ -2626,6 +2626,13 @@ document.addEventListener("alpine:init", () => {
       Density: "",
       ucsvsr_value: "",
 
+      // Recommednation function declaration for MUS 
+      get_recommdendation_message:"",
+      extrapolation:false,
+      val2:0,
+      // MUSNumValue
+      
+
       openHome(currentSection) {
         this.homepage = true;
         this.UCS_Virgin_Stress_Ratio = false;
@@ -3142,13 +3149,25 @@ document.addEventListener("alpine:init", () => {
             val = val.split("[")[1];
             val = val.split("]")[0];
             this.MUS_value = parseInt(val);
+            
+            
             console.log(res.data);
             this.MUSValue =
               "Based on your input, the predicted Maximum Unsupported span value is " +
               val/2 +"m";
+              this.MUSNumValue=val/2;
+              this.val2=parseInt(Q_Value);
           });
       },
       get_recommendtions_mus(){
+        // let val2=this.Q_Value;
+        let c = this.MUSNumValue - 0.17*this.val2;
+        // console.log(val2);
+        if(c >8){
+          this.get_recommdendation_message = "Immediate collapse -" + val2;
+        } else if(c<8){
+          this.get_recommdendation_message = "Check the extrapolation to find the exact duration for collapse. -" + val2;
+        }
 
       },
       refresh() {
