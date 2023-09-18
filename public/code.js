@@ -2629,7 +2629,7 @@ document.addEventListener("alpine:init", () => {
       // Recommednation function declaration for MUS 
       get_recommdendation_message:"",
       extrapolation:false,
-      val2:0,
+      val2:"",
       // MUSNumValue
       
 
@@ -3156,13 +3156,13 @@ document.addEventListener("alpine:init", () => {
               "Based on your input, the predicted Maximum Unsupported span value is " +
               val/2 +"m";
               this.MUSNumValue=val/2;
-              this.val2=parseInt(Q_Value);
+              console.log('val2')
           });
       },
       get_recommendtions_mus(){
-        // let val2=this.Q_Value;
+        val2=this.Q_Value;
         let c = this.MUSNumValue - 0.17*this.val2;
-        // console.log(val2);
+        console.log(val2);
         if(c >8){
           this.get_recommdendation_message = "Immediate collapse -" + val2;
         } else if(c<8){
